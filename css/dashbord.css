@@ -1,0 +1,67 @@
+
+*{
+   margin: 0;
+   padding: 0;
+   font-family: 'Times New Roman', Times, serif;
+}
+.perfil {
+   margin-top: 5%;
+   position: relative;
+   margin-left: 32%;
+   width: 40%;
+   padding: 1%;
+   left: -25%;
+
+
+}
+
+h3{
+  text-align: center;
+}
+.imagen{
+  position: fixed;
+  position: relative;
+  left: 81%;
+  margin-top: -2.5%;
+}
+.posisao{ 
+  position: relative;
+  margin-top: 5%;
+  left: 5%;
+}
+
+
+
+
+         
+.barra{
+  
+   
+   margin: 5%;
+   width: 15%;
+  
+   position: relative;
+   left: 60%;
+   margin-top: -7%;
+
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #c3dfff;
+}
+tr:hover {background-color: #21dbdb;}
+
+         
+        
+       
+      
