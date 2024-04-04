@@ -34,34 +34,74 @@ session_start();
 
 
     <div class="perfil" >
-       <h2> Ano </h2>
-       <form method="POST">
-        <select name="opcao"  class="btn btn-dark btn-lg" >
-            <option value="1">2021</option>
-            <option value="2">2022</option>
-            <option value="3">2023</option>
-            <option value="4">2024</option>
-            <option value="5">2025</option>
-            <option value="6">2026</option>
-        </select>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Compras de Hogwarts</title>
+</head>
+<body>
+    <h1>Lista de Compras de Hogwarts</h1>
 
-        <select name="cat"  class="btn btn-dark btn-lg" >
-            <option value="1">Sessão de Higiene</option>
-            <option value="2">Sessão de Limpeza</option>
-            <option value="3">Sessão de Alimento </option>
-         
-        </select>
-
-        <input type="submit" value="Go" class="btn btn-dark btn-lg">
-       </form>
+    <h2 class="btn btn-outline-primary">Criar Nova Lista de Compras</h2>
+    <form action="cadastrar.php" method="post">
+        <label for="ano">Ano:</label>
+        <input type="text" id="ano" name="ano" required><br>
+        <label for="mes">Mês:</label>
+        <input type="text" id="mes" name="mes" required><br>
+        <label for="categoria">Categoria:</label>
+        <input type="text" id="categoria" name="categoria" required><br>
+        <label for="descricao">Descrição:</label>
+        <input type="text" id="descricao" name="descricao" required><br>
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" required><br><br>
+        <button type="submit"  class="btn btn-dark btn-lg">Criar Lista</button>
+    </form>
+<br>
+<br>
+<br>
+<br>
+    <h2 class="btn btn-outline-primary">Listar Anos e Meses Disponíveis</h2>
+    <ul>
         <?php
-    include "in.php";
-    if ( $_POST) {
-        $opcao = $_POST["opcao"];
-       
+        include 'listarAnosEMeses.php';
+        ?>
+    </ul>
 
-    }
-    ?>
+    <h2 class="btn btn-outline-primary">Editar Item da Lista de Compras</h2>
+    <form action="editar.php" method="post">
+        <label for="id">ID do Item:</label>
+        <input type="number" id="id" name="id" required><br>
+        <label for="nova_quantidade">Nova Quantidade:</label>
+        <input type="number" id="nova_quantidade" name="nova_quantidade" required><br><br>
+        <button type="submit"  class="btn btn-dark btn-lg">Editar Item</button>
+    </form>
+<br>
+<br>
+<br>
+<br>
+    <h2  class="btn btn-outline-primary">Excluir Item da Lista de Compras</h2>
+    <form action="excluir.php" method="post">
+        <label for="id_excluir">ID do Item:</label>
+        <input type="number" id="id_excluir" name="id_excluir" required><br><br>
+        <button type="submit"  class="btn btn-dark btn-lg">Excluir Item</button>
+    </form>
+<br>
+<br>
+<br>
+<br>
+    <h2 class="btn btn-outline-primary" >Excluir Lista de Compras Completa</h2>
+    <form action="excluirListaCompleta.php" method="post">
+        <label for="ano_excluir">Ano:</label>
+        <input type="text" id="ano_excluir" name="ano_excluir" required><br>
+        <label for="mes_excluir">Mês:</label>
+        <input type="text" id="mes_excluir" name="mes_excluir" required><br><br>    
+        <button type="submit"  class="btn btn-dark btn-lg">Excluir Lista Completa</button>
+    </form>
+</body>
+</html>
+
     
     </div>
 

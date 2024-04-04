@@ -1,37 +1,35 @@
 <?php
-
 //conecta ao banco de dado
 include('conexao.php');
+// Verifica a conexão
+if ($conexao->connect_error) {
+    die("Erro de conexão: " . $conexao->connect_error);
+}
 
-
-//dados do formulario
-$alimento =  $_POST['alimento'];
-$qtd = $_POST['qtd'];
-$data = $_POST['datas'];
-$ano = $_POST['ano'];
-$validade = $_POST['validade'];
-
-
-
-
-//cadastramento no banco
-$sql = "INSERT  INTO produto(
- alimento,quantidade,
-  datas,ano,
-  validade)
- VALUES 
- ('$alimento','$qtd',
- '$data','$ano',
- '$validade')";
-
-// Executar o comando SQL
-if (mysqli_query($conexao, $sql)){
-        echo "Produto cadastrado com sucesso!";
-        header('Location: index.php');
-}else{
-        echo "Falha ao casdastrar produto.";
+// Função para criar uma nova lista de produto
+function criarLista($ano, $mes, $categoria, $descricao, $quantidade) {
+    global $conexao;
+    $sql = "INSERT INTO produto
+ (ano, mes, categoria, descricao, quantidade)
+            VALUES ('$ano', '$mes', '$categoria', '$descricao', '$quantidade')";
+    if ($conexao->query($sql) === TRUE) {
+        echo "Lista de produto criada com sucesso.";
+        header ('location:index.php');
+    } else {
+        echo "Erro ao criar lista de produto
+: " . $conexao->error;
+    }
 }
 
 
 
- ?>
+
+
+
+
+
+
+// criarLista(2024, "Janeiro", "Alimento", "Pão", 10);
+
+$conexao->close();
+?>

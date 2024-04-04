@@ -3,7 +3,7 @@
 $bdServidor = "localhost";
 $bdUsuario = "root";
 $bdSenha = "";
-$bdBanco = "compras";
+$bdBanco = "Hogwarts";
 $conexao = mysqli_connect($bdServidor, $bdUsuario, $bdSenha, $bdBanco);
 
 if (mysqli_connect_errno()) {
